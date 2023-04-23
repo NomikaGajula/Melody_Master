@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDIUM Level 1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/public/styles.css">
+    <link rel="stylesheet" type="text/css" href="/public/audio.css">
+</head>
+<style>
+  a{
+    text-decoration: none;
+    color: Black;
+  }
+  a:hover{
+    color: brown;
+  }
+  .w {
+background-image: url("images/tom1.png") ;
+}
+
+.a {
+background-image: url("images/tabla.png") ;
+}
+
+.d {
+background-image: url("images/tom4.png") ;
+}
+
+.j {
+background-image: url("images/snare.png") ;
+}
+
+.k {
+background-image: url("images/violin.png") ;
+}
+
+.l {
+background-image: url("images/kick.png") ;
+}
+
+</style>
+<body style="background-color: #F2EF71;"><br>
+    <h1>MEDIUM LEVEL 1</h1><br><br>
+    <div>
+    <h3>Instructions</h3>
+          <div style=" margin:auto; width: 50%;">
+        <ul style=" margin-left:3%">
+            <li>
+                Click on audio button to play the music
+            </li>
+            <li>
+                After the music is played now choose the instruments played in that audio<br> by using key board letters displayed on each button
+            </li>
+            <li>
+                Then click on submit to know the answer
+            </li>
+            <li>
+                If you are stuck you can use Hints provided
+            </li>
+        </ul>
+        </div>
+        </div><br><br>
+    <div class="holder" >
+  <div class="audio green-audio-player">
+    <div class="loading">
+      <div class="spinner"></div>
+    </div>
+    <div class="play-pause-btn">  
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 18 24">
+        <path fill="#566574" fill-rule="evenodd" d="M18 12L0 24V0" class="play-pause-icon" id="playPause"/>
+      </svg>
+    </div>
+
+    <div class="controls">
+      <span class="current-time">0:00</span>
+      <div class="slider" data-direction="horizontal">
+        <div class="progress">
+          <div class="pin" id="progress-pin" data-method="rewind"></div>
+        </div>
+      </div>
+      <span class="total-time">0:00</span>
+    </div>
+
+    <div class="volume">
+      <div class="volume-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path fill="#566574" fill-rule="evenodd" d="M14.667 0v2.747c3.853 1.146 6.666 4.72 6.666 8.946 0 4.227-2.813 7.787-6.666 8.934v2.76C20 22.173 24 17.4 24 11.693 24 5.987 20 1.213 14.667 0zM18 11.693c0-2.36-1.333-4.386-3.333-5.373v10.707c2-.947 3.333-2.987 3.333-5.334zm-18-4v8h5.333L12 22.36V1.027L5.333 7.693H0z" id="speaker"/>
+        </svg>
+      </div>
+      <div class="volume-controls hidden">
+        <div class="slider" data-direction="vertical">
+          <div class="progress">
+            <div class="pin" id="volume-pin" data-method="changeVolume"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <audio crossorigin>
+      <source src="sounds/medium/medium_1.mp3" type="audio/mpeg">
+    </audio>
+   
+  </div>
+  
+</div> <br><br>
+ <h1>
+        Choose the instruments played
+    </h1>
+    <div class="set" style="margin-left: 5%; margin-top: 20px; margin-bottom: 15px; ">
+    <button class="w drum">w</button>
+    <button class="a drum">a</button>
+    <button class="d drum">d</button>
+    <button class="j drum">j</button>
+    <button class="k drum">k</button>
+    <button class="l drum">l</button>
+  </div>
+    <footer class="footer_flex_container ">
+      <div class="footer_flex_item_left">
+           <form action="/medium_1" method="post" style="margin-left: 10%;">
+        <label>Enter your Answers in the form of alphabets seperated by ,(comma)</label><br><br>
+        <input type="text" name="answer" ><br><br>
+        <button type="submit" style="width:  70px;height:40px; border-radius: 5px; background-color: transparent;">Submit</button><br><br>
+        <p> <%= answer %></p>
+      </form>
+      </div> 
+      <div class="footer_flex_item_right">
+          <button onclick="myFunction()"id="click" style="padding: 5px; border:1px solid whitesmoke; border-radius: 10px; margin-left:10%; background-color:transparent;">1st Hint</button>
+   <p id="demo" style=" width: 150px; "></p> 
+      </div>
+    </footer>
+<br>
+<footer>
+  <h5 style="text-align: center;">
+    Quick Links </h5><br>
+    <div class="row" style="width: 100%; text-align: center;">
+      <div class="col-lg-4">
+        <a href="/easy">Easy Level</a>
+      </div>
+      <div class="col-lg-4">
+        <a href="/medium">Medium Level</a>
+      </div>
+      <div class="col-lg-4">
+        <a href="/hard">Hard Level</a>
+      </div>
+    </div>
+   
+   
+ 
+</footer>
+<script type="text/javascript" src="src/audio.js">
+   </script>
+   <script>
+    function myFunction() {
+    if(document.getElementById("click").innerHTML==="2nd hint"){
+       document.getElementById("demo").innerHTML = "violin is not used";
+       document.getElementById("click").innerHTML = "1st Hint";
+      }
+      else if( document.getElementById("click").innerHTML = "1st Hint"){
+     document.getElementById("demo").innerHTML = "Total 5 instruments are used";
+      document.getElementById("click").innerHTML = "2nd hint";
+     }  
+   }
+   </script>
+<script type="text/javascript" src="src/app.js">
+</script>
+</body>
+</html>
