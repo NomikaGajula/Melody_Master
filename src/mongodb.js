@@ -1,6 +1,8 @@
+import dotenv from 'dotenv'
+require('dotenv').config();
 const mongoose=require("mongoose")
 
-mongoose.connect("mongodb+srv://nomig6337:GNomi456@newcluster.osom4px.mongodb.net/LoginDataBase")
+mongoose.connect(process.env.MONGODB_URI)
 .then(()=>{
     console.log("mongodb connected");
 })
